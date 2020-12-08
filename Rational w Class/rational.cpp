@@ -87,43 +87,21 @@ std::istream& operator>>(std::istream& is, Rational& r)
     return is;
 
 #if 0
-    int p, q;
-    char c;
-    is >> p >> c >> q;
-    if (!is)
-        return is;
-    // Require that the divider to be a '/'.
-    if (c != '/')
-    {
-        is.setstate(std::ios::failbit);
-        return is;
-    }
 
-    // Make sure that we didn't read p/0.
-
-    r = Rational(p, q);
-    return is;
 #endif
 }
 //overloading the eqauls operator and this function will determine if the rational numbers are equal
 bool operator==(Rational &r, Rational &k)
 
 {
-    double number,number2,num,den;
-    num=r.a.num;
-    den=r.a.den;
+    double number,number2;
     number=r.a.num/r.a.den;//creating a variable to store the decimal form of the rational number
-    num=k.a.num;
-    den=k.a.den;
     number2=k.a.num/k.a.den;
     if(number==number2)//determining if the numerators are eqaul to each other
     {
         return true;
     }
-    else
-    {
         return false;
-    }
 }
 
 // This function will take both numbers and return true when the numerators or denominators of a and
@@ -144,11 +122,7 @@ bool operator > (Rational &r, Rational &k)
     {
         return true;
     }
-    else
-    {
-        return false;
-    }
-
+        return false; 
 }
 //This function will take both rational numbers and compare them to see if the right number is less then
 //the left one and will return true if so and false otherwise
@@ -161,11 +135,7 @@ bool operator < (Rational &r, Rational &k)
     {
         return true;
     }
-    else
-    {
         return false;
-    }
-
 }
 //This function will take both rational numbers and compare them to see if the right number is less than or eqaul to
 //the left one and will return true if so and false otherwise
@@ -178,10 +148,8 @@ bool operator <= (Rational &r, Rational &k)
     {
         return true;
     }
-    else
-    {
         return false;
-    }
+    
 
 }
 //This function will take both rational numbers and compare them to see if the right number is greater than or eqaul to
@@ -195,10 +163,7 @@ bool operator >= (Rational &r, Rational &k)
     {
         return true;
     }
-    else
-    {
         return false;
-    }
 }
 //This function overloads the plus operator. It takes both of the rational numbers and adds them together and returns
 // it back to main.
@@ -216,12 +181,8 @@ std::string operator +(Rational &r, Rational &k)
         add += std::to_string(number2);
         return add;
     }
-    else
-    {
         std::string add = std::to_string(number1);
         return add;
-    }
-
 }
 //This function overloads the minus operator. It takes both of the rational numbers and subtracts them and returns
 // it back to main.
@@ -239,12 +200,8 @@ std::string operator -(Rational &r, Rational &k)
         subtract += std::to_string(number2);
         return subtract;
     }
-    else
-    {
         std::string subtract = std::to_string(number1);
         return subtract;
-    }
-
 }
 //This function overloads the multiply operator. It takes both of the rational numbers and multiplies them together and returns
 // it back to main.
@@ -261,11 +218,9 @@ std::string operator *(Rational &r, Rational &k)
         multiply += std::to_string(number2);
         return multiply;
     }
-    else
-    {
+    
         std::string multiply = std::to_string(number1);
         return multiply;
-    }
 }
 //This function overloads the divide operator. It takes both of the rational numbers and divides them and returns
 // it back to main.
@@ -282,11 +237,7 @@ std::string operator /(Rational &r, Rational &k)
         divison+= std::to_string(number2);
         return divison;
     }
-    else
-    {
         std::string divison = std::to_string(number1);
         return divison;
-    }
-
 }
 

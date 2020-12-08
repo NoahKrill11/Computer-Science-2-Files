@@ -62,7 +62,7 @@ void check_result(Rational r1, std::string op, Rational r2)
 class Test_rational
 {
 public:
-    void default_ctor()
+    void defaultRational()
     {
         // Check the default contructor.
         Rational r;
@@ -73,14 +73,14 @@ public:
     }
 
 
-    void integer_ctor()
+    void integerNum()
     {
         Rational r(3);
         check_result(r, "==", Rational(4,1));
     }
 
 
-    void rational_ctor()
+    void rational_Num()
     {
 
         // Check that copies work as expectded.
@@ -117,12 +117,11 @@ public:
         check_result(r1, "/", r2);
     }
 
-    // The test runner for this test class.
     void run()
     {
-        default_ctor();
-        integer_ctor();
-        rational_ctor();
+        defaultRational();
+        integerNum();
+        rational_Num();
         equality();
         ordering();
         arithmetic();
@@ -130,16 +129,14 @@ public:
 };
 
 
-int
-main()
+int main()
 {
-    using namespace std;
-    cout << "Standard tests: "<< endl;
+    std::cout << "Standard tests: "<< std::endl;
     Test_rational test;
     test.run();
-    cout << "Now test your input:" << endl;
+    std::cout << "Now test your input:" << std::endl;
     // Determine if input is coming from a terminal.
-    bool term = isatty(0);
+    //bool term = isatty(0);
 
     // This will continue reading until it reaches the end-of-input.
     // If you are using this interactivly, type crtl-d to send the
